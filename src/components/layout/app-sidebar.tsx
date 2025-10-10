@@ -33,15 +33,15 @@ import { UserAvatarProfile } from '@/components/user-avatar-profile';
 import { navItems } from '@/constants/data';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import { supabase } from '@/lib/supabaseClient';
-import {
-  IconBell,
-  IconChevronRight,
-  IconChevronsDown,
-  IconCreditCard,
-  IconLogout,
-  IconPhotoUp,
-  IconUserCircle
-} from '@tabler/icons-react';
+import dynamic from 'next/dynamic';
+
+const IconBell = dynamic(() => import('@tabler/icons-react').then(mod => mod.IconBell), { ssr: false });
+const IconChevronRight = dynamic(() => import('@tabler/icons-react').then(mod => mod.IconChevronRight), { ssr: false });
+const IconChevronsDown = dynamic(() => import('@tabler/icons-react').then(mod => mod.IconChevronsDown), { ssr: false });
+const IconCreditCard = dynamic(() => import('@tabler/icons-react').then(mod => mod.IconCreditCard), { ssr: false });
+const IconLogout = dynamic(() => import('@tabler/icons-react').then(mod => mod.IconLogout), { ssr: false });
+const IconPhotoUp = dynamic(() => import('@tabler/icons-react').then(mod => mod.IconPhotoUp), { ssr: false });
+const IconUserCircle = dynamic(() => import('@tabler/icons-react').then(mod => mod.IconUserCircle), { ssr: false });
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
@@ -109,7 +109,7 @@ export default function AppSidebar() {
   }, []);
 
   return (
-    <Sidebar collapsible='icon'>
+    <Sidebar collapsible='icon' className='overflow-x-hidden'>
       <SidebarHeader>
         <div className='p-2'>
             <img src="/assets/resumex-logo-white.svg" alt="logo" className='w-25 h-10' />

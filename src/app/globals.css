@@ -85,7 +85,7 @@
   }
 }
 
-/* View Transition Wave Effect */
+
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
@@ -93,35 +93,41 @@
 }
 
 ::view-transition-old(root) {
-  /* Ensure the outgoing view (old theme) is beneath */
+ 
   z-index: 0;
 }
 
 ::view-transition-new(root) {
-  /* Ensure the incoming view (new theme) is always on top */
+ 
   z-index: 1;
 }
 
 @keyframes reveal {
   from {
-    /* Use CSS variables for the origin, defaulting to center if not set */
+   
     clip-path: circle(0% at var(--x, 50%) var(--y, 50%));
     opacity: 0.7;
   }
   to {
-    /* Use CSS variables for the origin, defaulting to center if not set */
+   
     clip-path: circle(150% at var(--x, 50%) var(--y, 50%));
     opacity: 1;
   }
 }
 
 ::view-transition-new(root) {
-  /* Apply the reveal animation */
+ 
   animation: reveal 0.4s ease-in-out forwards;
 }
 
 .primary-btn{
   border-radius: 12px;
+  background: linear-gradient(180deg, #9342FF 0%, #4A00AE 100%);
+  box-shadow: 0 5px 8.6px 0 #B379FF inset;
+  color: white;
+}
+.primary-btn-6px{
+  border-radius: 8px;
   background: linear-gradient(180deg, #9342FF 0%, #4A00AE 100%);
   box-shadow: 0 5px 8.6px 0 #B379FF inset;
   color: white;
@@ -158,5 +164,34 @@
 .card-bg-gradient{
   background: linear-gradient(180deg, #9342FF 0%, #3B0189 100%);
   box-shadow: 0 5px 8.6px 0 #B379FF inset;
+  color: white;
+}
+
+[data-slot='tabs'] {
+ 
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+}
+
+[data-slot='tabs-list'] {
+  height: 3rem;
+  border-radius: 0.75rem;
+  background-color: #f3f4f6;
+  padding: 0.25rem;
+  display: inline-flex;
+  width: fit-content;
+}
+
+[data-slot='tabs-trigger'] {
+  height: calc(100% - 1px);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 0.5rem;
+}
+
+[data-slot='tabs-trigger'][data-state='active'] {
+  border-radius: 0.5rem;
+  background: linear-gradient(180deg, #9342FF 0%, #4A00AE 100%);
   color: white;
 }

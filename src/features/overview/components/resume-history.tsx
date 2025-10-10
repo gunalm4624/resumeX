@@ -118,7 +118,14 @@ export function ResumeHistoryTable() {
       columnHelper.accessor('lastModified', {
         id: 'lastModified',
         header: 'Last Modified',
-        cell: (info) => new Date(info.getValue()).toLocaleDateString()
+        cell: (info) => {
+          const date = new Date(info.getValue());
+          return date.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit'
+          });
+        }
       }),
       columnHelper.accessor('status', {
         id: 'status',

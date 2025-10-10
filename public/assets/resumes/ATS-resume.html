@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gunal M - UI/UX Designer Resume</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for resume aesthetics */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            padding: 0;
+            margin: 0;
+            min-height: 100vh;
+        }
+        /* A4 size container */
+        .resume-container {
+            width: 210mm;  /* A4 width */
+            height: 297mm; /* A4 height */
+            padding: 10mm;  /* further reduced margin for PDF */
+            margin: 0;
+            box-sizing: border-box;
+            background: white;
+            font-size: 8.5pt;  /* smaller font for better fit */
+            line-height: 1.05;
+            display: flex;
+            flex-direction: column;
+        }
+        /* Compress spacing for PDF */
+        section {
+            margin-bottom: 6pt;
+        }
+        h2 {
+            margin-bottom: 3pt;
+        }
+        .section-divider {
+            margin-top: 1pt;
+            margin-bottom: 3pt;
+        }
+        /* Better text spacing */
+        p, .skill-item {
+            margin-bottom: 2pt;
+        }
+        .experience-list li {
+            margin-bottom: 1pt;
+        }
+        /* Custom divider line for sections - Reduced height and lighter color for lower opacity */
+        .section-divider {
+            height: 1px; /* Reduced from 2px for subtlety */
+            width: 100%;
+            background-color: #d1d5db; /* Light gray for reduced opacity/intensity (Tailwind gray-300 equivalent) */
+            margin-top: 4px;
+            margin-bottom: 24px;
+        }
+        /* Style for the bullet points in experience */
+        .experience-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .experience-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #333; /* Dark color for the bullet */
+            font-weight: bold;
+        }
+        /* Specific styling for the Skills section text alignment */
+        .skill-item {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 0.25rem;
+        }
+        .skill-item strong {
+            flex-shrink: 0;
+            margin-right: 0.5rem;
+            min-width: 100px; /* Ensures alignment across rows */
+        }
+
+        /* PDF optimization */
+        @media print {
+            body {
+                background: white !important;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+            .resume-container {
+                box-shadow: none !important;
+                border: none !important;
+            }
+        }
+        
+        /* Responsive adjustments */
+        @media (min-width: 640px) {
+            .skill-item strong {
+                min-width: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="resume-container">
+
+        <!-- HEADER SECTION -->
+        <header class="mb-4">
+            <h1 class="text-3xl font-extrabold text-gray-900 mb-1 tracking-tight">Gunal M</h1>
+            <p class="text-base font-medium text-gray-600 mb-2">UI/UX Designer</p>
+
+            <!-- Contact Info Row -->
+            <div class="flex flex-wrap gap-x-4 text-sm text-gray-700">
+                <!-- Links changed to text-blue-600 with a darker blue hover effect -->
+                <a href="mailto:gunalm4624@gmail.com" class="text-blue-600 hover:text-blue-800 transition duration-150">gunalm4624@gmail.com</a>
+                <span class="hidden sm:inline-block">|</span>
+                <span>+91 9787266337</span>
+                <span class="hidden sm:inline-block">|</span>
+                <a href="https://www.linkedin.com/in/gunal-m-a35458241/" target="_blank" class="text-blue-600 hover:text-blue-800 transition duration-150">LinkedIn</a>
+                <span class="hidden sm:inline-block">|</span>
+                <a href="https://www.gunalm.in/" target="_blank" class="text-blue-600 hover:text-blue-800 transition duration-150">Portfolio</a>
+            </div>
+        </header>
+
+        <!-- PROFESSIONAL SUMMARY -->
+        <section class="mb-4">
+            <h2 class="text-lg font-bold uppercase tracking-wider mb-1 text-gray-900">Professional Summary</h2>
+            <div class="section-divider"></div>
+            <p class="text-gray-700 leading-tight">
+                I'm a UI/UX Designer with **2+ years of experience** turning complex fintech systems into simple, human-centered digital products. My design
+                philosophy combines clarity with purpose—designing not just for pixels, but for people. I specialize in crafting seamless experiences
+                that improve usability, enhance trust, and help businesses scale, from mobile banking apps to merchant dashboards.
+            </p>
+        </section>
+
+        <!-- PROFESSIONAL SKILLS -->
+        <section class="mb-4">
+            <h2 class="text-lg font-bold uppercase tracking-wider mb-1 text-gray-900">Professional Skills</h2>
+            <div class="section-divider"></div>
+            <div class="text-gray-700 text-sm grid gap-y-2">
+                <div class="skill-item">
+                    <strong class="font-semibold text-gray-800">Design Tools:</strong>
+                    <span>Figma, Adobe XD, Photoshop, Illustrator, Miro</span>
+                </div>
+                <div class="skill-item">
+                    <strong class="font-semibold text-gray-800">UX Process:</strong>
+                    <span>Wireframing, User & Market Research, Information Architecture, Interaction Design, Prototyping, Usability Testing</span>
+                </div>
+                <div class="skill-item">
+                    <strong class="font-semibold text-gray-800">UI Design:</strong>
+                    <span>Visual Design, Layout Systems, Grid and Spacing, Color Theory, Typography, Component Design, Design Systems, Iconography, Responsive Design, Pixel-Perfect Detailing</span>
+                </div>
+                <div class="skill-item">
+                    <strong class="font-semibold text-gray-800">Collaboration:</strong>
+                    <span>Design Documentation for Client Presentations, Cross-Functional Communication, Stakeholder Alignment</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORK EXPERIENCE -->
+        <section class="mb-4">
+            <h2 class="text-lg font-bold uppercase tracking-wider mb-1 text-gray-900">Work Experience</h2>
+            <div class="section-divider"></div>
+
+            <!-- Job 1 -->
+            <div class="mb-3">
+                <div class="flex justify-between items-start mb-1">
+                    <h3 class="text-base font-bold text-gray-900">UI/UX Designer | Financial Software and Systems (FSS), Chennai</h3>
+                    <span class="text-sm font-medium text-gray-600">August 2024–Present</span>
+                </div>
+                <ul class="experience-list list-none pl-0 text-gray-700 text-sm">
+                    <li>Designed mobile banking apps for major clients including IOB, BOI, and IPPB, focusing on accessibility, trust, and consistency.</li>
+                    <li>Simplified payment Gateways for ENBD, OAB, Alrajhi and FAB, reducing user drop-offs and improving overall transaction success rates.</li>
+                    <li>Built white-label UPI SDKs for partner banks, maintaining design coherence across diverse product ecosystems.</li>
+                    <li>Created merchant dashboards and admin panels, helping businesses make faster, data-driven decisions with intuitive visualization.</li>
+                    <li>Designed system monitoring tools to help internal teams proactively track performance and reduce downtime.</li>
+                    <li>Done design systems, documentation, and component reusability to streamline collaboration between design and engineering teams.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- INTERNSHIP EXPERIENCE -->
+        <section class="mb-4">
+            <h2 class="text-lg font-bold uppercase tracking-wider mb-1 text-gray-900">Internship Experience</h2>
+            <div class="section-divider"></div>
+
+            <!-- Internship 1 -->
+            <div class="mb-3">
+                <div class="flex justify-between items-start mb-1">
+                    <h3 class="text-base font-bold text-gray-900">UI/UX Intern | Financial Software and Systems (FSS), Chennai</h3>
+                    <span class="text-sm font-medium text-gray-600">February 2023 – August 2023</span>
+                </div>
+                <ul class="experience-list list-none pl-0 text-gray-700 text-sm">
+                    <li>Assisted in redesigning the ONEIC Merchant Portal, improving clarity, navigation, and visual balance.</li>
+                    <li>Supported wireframing, prototyping, and usability testing, ensuring smooth handoff between design and development.</li>
+                    <li>Gained exposure to WCAG accessibility guidelines and responsive design systems for multi-platform scalability.</li>
+                    <li>Learned to understand merchant and payment flows by shadowing senior designers, building a strong foundation in fintech design.</li>
+                    <li>Participated in cross-functional collaboration and stakeholder discussions, aligning user needs with product and engineering priorities.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section class="mb-4">
+            <h2 class="text-lg font-bold uppercase tracking-wider mb-1 text-gray-900">Education</h2>
+            <div class="section-divider"></div>
+
+            <!-- Education Entry -->
+            <div class="flex justify-between items-start">
+                <h3 class="text-base font-bold text-gray-900">Master of Computer Applications (MCA) | SRM University, Chennai</h3>
+                <span class="text-sm font-medium text-gray-600">2021–2023</span>
+            </div>
+        </section>
+
+        <!-- APPRECIATION & RECOGNITION -->
+        <section>
+            <h2 class="text-lg font-bold uppercase tracking-wider mb-1 text-gray-900">Appreciation & Recognition</h2>
+            <div class="section-divider"></div>
+
+            <!-- Awards -->
+            <ul class="experience-list list-none pl-0 text-gray-700 text-base">
+                <li>**Champion of the Quarter** (ENBD Payment Gateway, 2025): Delivered a seamless payment experience that exceeded client expectations.</li>
+                <li>**Team Excellence Award** (FAB Bank, 2024): Recognized for outstanding collaboration and successful project delivery.</li>
+            </ul>
+        </section>
+
+    </div>
+
+</body>
+</html>

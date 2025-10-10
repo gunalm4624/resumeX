@@ -34,8 +34,15 @@ export function ActiveThemeProvider({
   const [activeTheme, setActiveTheme] = useState<string>(
     () => initialTheme || DEFAULT_THEME
   );
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isClient) return;
+    
     setThemeCookie(activeTheme);
 
     Array.from(document.body.classList)
@@ -47,7 +54,7 @@ export function ActiveThemeProvider({
     if (activeTheme.endsWith('-scaled')) {
       document.body.classList.add('theme-scaled');
     }
-  }, [activeTheme]);
+  }, [activeTheme, isClient]);
 
   return (
     <ThemeContext.Provider value={{ activeTheme, setActiveTheme }}>

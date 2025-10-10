@@ -22,33 +22,33 @@ export const navItems: NavItem[] = [
   },
   {
     title: 'Create Resume',
-    url: '/dashboard/product',
+    url: '/dashboard/create-resume',
     icon: 'product',
-    shortcut: ['p', 'p'],
+    shortcut: ['c', 'r'],
     isActive: false,
     items: [] // No child items
   },
   {
-    title: 'Resume Rewritter',
-    url: '/dashboard/product',
+    title: 'Resume Rewriter',
+    url: '/dashboard/resume-rewriter',
     icon: 'product',
-    shortcut: ['p', 'p'],
+    shortcut: ['r', 'r'],
     isActive: false,
     items: [] // No child items
   },
   {
     title: 'ATS Checker',
-    url: '/dashboard/product',
+    url: '/dashboard/ats-checker',
     icon: 'product',
-    shortcut: ['p', 'p'],
+    shortcut: ['a', 'c'],
     isActive: false,
     items: [] // No child items
   },
   {
     title: 'Saved Resumes',
-    url: '/dashboard/product',
+    url: '/dashboard/saved-resumes',
     icon: 'product',
-    shortcut: ['p', 'p'],
+    shortcut: ['s', 'r'],
     isActive: false,
     items: [] // No child items
   },

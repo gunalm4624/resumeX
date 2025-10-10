@@ -30,7 +30,6 @@ export default async function RootLayout({
 }) {
   const cookieStore = await cookies();
   const activeThemeValue = cookieStore.get('active_theme')?.value;
-  const isScaled = activeThemeValue?.endsWith('-scaled');
 
   return (
     <html lang='en' suppressHydrationWarning>
@@ -50,15 +49,15 @@ export default async function RootLayout({
       <body
         className={cn(
           'bg-background overflow-hidden overscroll-none font-sans antialiased',
-          activeThemeValue ? `theme-${activeThemeValue}` : '',
-          isScaled ? 'theme-scaled' : '',
           fontVariables
         )}
       >
         <NextTopLoader color='var(--primary)' showSpinner={false} />
         <NuqsAdapter>
-              <Toaster />
-              {children}
+          <Providers activeThemeValue={activeThemeValue}>
+            <Toaster />
+            {children}
+          </Providers>
         </NuqsAdapter>
       </body>
     </html>
