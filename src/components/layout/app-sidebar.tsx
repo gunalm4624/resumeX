@@ -109,15 +109,15 @@ export default function AppSidebar() {
   }, []);
 
   return (
-    <Sidebar collapsible='icon' className='overflow-x-hidden'>
+    <Sidebar collapsible='icon' className='overflow-hidden'>
       <SidebarHeader>
         <div className='p-2'>
             <img src="/assets/resumex-logo-white.svg" alt="logo" className='w-25 h-10' />
         </div>
-      <SidebarSeparator className='mx-auto mb-2' />
+      <SidebarSeparator className='mx-auto' />
 
   <SidebarMenu className='flex flex-col space-y-2'>
-          <SidebarMenuItem>
+          {/* <SidebarMenuItem>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <SidebarMenuButton
@@ -184,9 +184,9 @@ export default function AppSidebar() {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-          </SidebarMenuItem>
+          </SidebarMenuItem> */}
         </SidebarMenu>
-                    <SidebarSeparator className='mx-auto mt-2' />
+                    {/* <SidebarSeparator className='mx-auto mt-2' /> */}
 
       </SidebarHeader>
 
@@ -209,7 +209,18 @@ export default function AppSidebar() {
                         isActive={pathname === item.url}
                         className='hover:bg-transparent active:bg-transparent data-[active=true]:bg-transparent'
                       >
-                        {item.icon && <Icon />}
+                        {item.icon ? (
+                          <div
+                            className='w-6 h-6 flex items-center justify-center rounded-lg overflow-hidden'
+                            style={{
+                              background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.00) 100%)',
+                            }}
+                          >
+                            <Icon className='w-6 h-6' />
+                          </div>
+                        ) : (
+                          <Icon className='w-6 h-6' />
+                        )}
                         <span>{item.title}</span>
                         <IconChevronRight className='ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90' />
                       </SidebarMenuButton>
@@ -241,7 +252,18 @@ export default function AppSidebar() {
                     isActive={pathname === item.url}
                   >
                     <Link href={item.url}>
-                      <Icon />
+                      {item.icon ? (
+                        <div
+                          className='w-8 h-8 flex items-center justify-center rounded-sm'
+                          style={{
+                            background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.00) 100%)'
+                          }}
+                        >
+                          <Icon className='w-5 h-5' />
+                        </div>
+                      ) : (
+                        <Icon className='w-6 h-6' />
+                      )}
                       <span>{item.title}</span>
                     </Link>
                   </SidebarMenuButton>
@@ -251,7 +273,8 @@ export default function AppSidebar() {
           </SidebarMenu>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter>
+      <SidebarFooter className='mt-auto mb-4 px-2 mx-auto relative'>
+        <div className='bg-white h-30 w-100 absolute z-10 bottom-12 left-0 right-0 mx-auto'></div>
       </SidebarFooter>
       <SidebarRail />
               <img src="/assets/Star-decor-bottom.svg" className='absolute bottom-[-40px] w-full filter blur-[16px]' alt="decor-image" />

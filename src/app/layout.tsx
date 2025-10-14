@@ -15,7 +15,7 @@ const META_THEME_COLORS = {
 };
 
 export const metadata: Metadata = {
-  title: 'Next Shadcn',
+  title: 'ResumeX | AI Powered Resume Builder and Rewritter',
   description: 'Basic dashboard with Next.js and Shadcn'
 };
 
@@ -34,6 +34,7 @@ export default async function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning>
       <head>
+        <link rel="icon" href="/favicon.ico" />
         <script
           dangerouslySetInnerHTML={{
             __html: `

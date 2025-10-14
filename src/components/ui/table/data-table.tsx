@@ -58,6 +58,7 @@ export function DataTable<TData>({
                     <TableRow
                       key={row.id}
                       data-state={row.getIsSelected() && 'selected'}
+                      className="py-4"
                     >
                       {row.getVisibleCells().map((cell) => (
                         <TableCell
@@ -75,7 +76,7 @@ export function DataTable<TData>({
                     </TableRow>
                   ))
                 ) : (
-                  <TableRow>
+                  <TableRow className="py-4">
                     <TableCell
                       colSpan={table.getAllColumns().length}
                       className='h-24 text-center'

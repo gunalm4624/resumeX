@@ -52,6 +52,34 @@ export const navItems: NavItem[] = [
     isActive: false,
     items: [] // No child items
   },
+  {
+    title: 'Resume To Portfolio Builder',
+    url: '/dashboard/saved-resume',
+    icon: 'product',
+    shortcut: ['s', 'r'],
+    isActive: false,
+  },
+  {
+    title: 'Cover Letter Generator',
+    url: '/dashboard/saved-resume',
+    icon: 'product',
+    shortcut: ['s', 'r'],
+    isActive: false,
+  },
+  {
+    title: 'Job Alert Agent',
+    url: '/dashboard/saved-resume',
+    icon: 'product',
+    shortcut: ['s', 'r'],
+    isActive: false,
+  },
+  {
+    title: 'Interview Preparation',
+    url: '/dashboard/saved-resume',
+    icon: 'product',
+    shortcut: ['s', 'r'],
+    isActive: false,
+  },
   
 ];
 
