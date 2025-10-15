@@ -274,10 +274,9 @@ export default function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter className='mt-auto mb-4 px-2 mx-auto relative'>
-        <div className='bg-white h-30 w-100 absolute z-10 bottom-12 left-0 right-0 mx-auto'></div>
       </SidebarFooter>
       <SidebarRail />
-              <img src="/assets/Star-decor-bottom.svg" className='absolute bottom-[-40px] w-full filter blur-[16px]' alt="decor-image" />
+              <img src="/assets/Star-decor-bottom.svg" className='absolute bottom-[-30px] filter blur-[14px]' alt="decor-image" />
     </Sidebar>
   );
 }
