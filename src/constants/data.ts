@@ -23,7 +23,7 @@ export const navItems: NavItem[] = [
   {
     title: 'Create Resume',
     url: '/dashboard/create-resume',
-    icon: 'product',
+    icon: 'page',
     shortcut: ['c', 'r'],
     isActive: false,
     items: [] // No child items
@@ -31,7 +31,7 @@ export const navItems: NavItem[] = [
   {
     title: 'Resume Rewriter',
     url: '/dashboard/resume-rewriter',
-    icon: 'product',
+    icon: 'post',
     shortcut: ['r', 'r'],
     isActive: false,
     items: [] // No child items
@@ -39,7 +39,7 @@ export const navItems: NavItem[] = [
   {
     title: 'ATS Checker',
     url: '/dashboard/ats-checker',
-    icon: 'product',
+    icon: 'check',
     shortcut: ['a', 'c'],
     isActive: false,
     items: [] // No child items
@@ -47,7 +47,7 @@ export const navItems: NavItem[] = [
   {
     title: 'Saved Resumes',
     url: '/dashboard/saved-resumes',
-    icon: 'product',
+    icon: 'page',
     shortcut: ['s', 'r'],
     isActive: false,
     items: [] // No child items
@@ -55,28 +55,28 @@ export const navItems: NavItem[] = [
   {
     title: 'Cover Letter Generator',
     url: '/dashboard/cover-letter',
-    icon: 'product',
+    icon: 'post',
     shortcut: ['s', 'r'],
     isActive: false,
   },
   {
     title: 'Resume To Portfolio Builder',
     url: '/dashboard/portfolio-builder',
-    icon: 'product',
+    icon: 'laptop',
     shortcut: ['s', 'r'],
     isActive: false,
   },
   {
     title: 'Job Alert Agent',
     url: '/dashboard/job-alert-agent',
-    icon: 'product',
+    icon: 'bell',
     shortcut: ['s', 'r'],
     isActive: false,
   },
   {
     title: 'Interview Preparation',
     url: '/dashboard/interview-preparation',
-    icon: 'product',
+    icon: 'help',
     shortcut: ['s', 'r'],
     isActive: false,
   },

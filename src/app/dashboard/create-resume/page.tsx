@@ -142,10 +142,13 @@ export default function CreateResumePage() {
   });
 
   const [isDownloading, setIsDownloading] = useState<boolean>(false);
+  const [isGenerating, setIsGenerating] = useState<boolean>(false);
   const [previewHTML, setPreviewHTML] = useState<string>('');
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
   const [validationErrors, setValidationErrors] = useState<string[]>([]);
   const [showValidation, setShowValidation] = useState<boolean>(false);
+  const [accordionValue, setAccordionValue] = useState<string>('personal');
+  const summaryRef = React.useRef<HTMLTextAreaElement | null>(null);
 
   // Form validation function
   const validateForm = () => {
@@ -192,13 +195,8 @@ export default function CreateResumePage() {
     return errors.length === 0;
   };
 
-  // Generate preview HTML whenever form data changes
+  // Generate preview HTML whenever form data changes (always render current inputs)
   const generatePreview = () => {
-    if (!validateForm()) {
-      setPreviewHTML('');
-      return;
-    }
-
     const resumeData: ResumeData = {
       personal: formData.personal,
       workExperience: isExperienced ? workExperiences.filter(exp => 
@@ -215,6 +213,47 @@ export default function CreateResumePage() {
     
     const html = ResumeGenerator.generateHTML(resumeData);
     setPreviewHTML(html);
+  };
+
+  const handleGenerateWithAI = async () => {
+    setIsGenerating(true);
+    try {
+      const baseData = {
+        personal: formData.personal,
+        education: formData.education,
+        skills: formData.skills,
+        awards: formData.awards,
+        workExperience: isExperienced ? workExperiences : [],
+        internships: hasInternship ? internships : []
+      };
+
+      const res = await fetch('/api/generate-resume', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ baseData })
+      });
+      if (!res.ok) throw new Error('Failed to generate resume');
+      const data = await res.json();
+
+      setFormData((prev: any) => ({
+        ...prev,
+        personal: data.personal || prev.personal,
+        education: data.education || prev.education,
+        skills: data.skills ?? prev.skills,
+        awards: data.awards ?? prev.awards,
+      }));
+      if (Array.isArray(data.workExperience)) setWorkExperiences(data.workExperience);
+      if (Array.isArray(data.internships)) setInternships(data.internships);
+
+      setTimeout(generatePreview, 0);
+      setActiveTab('download');
+      setShowTabs(true);
+    } catch (e) {
+      console.error(e);
+      alert('AI generation failed. Please try again.');
+    } finally {
+      setIsGenerating(false);
+    }
   };
 
   // Update preview when form data changes
@@ -477,7 +516,12 @@ export default function CreateResumePage() {
                   </div>
                 </div>
 
-                <Accordion type="single" defaultValue="personal" className="space-y-4">
+                <Accordion
+                  type="single"
+                  value={accordionValue}
+                  onValueChange={(v) => v && setAccordionValue(v)}
+                  className="space-y-4"
+                >
                   <AccordionItem value="personal">
                     <AccordionTrigger>Personal Details</AccordionTrigger>
                     <AccordionContent>
@@ -548,6 +592,7 @@ export default function CreateResumePage() {
                               required 
                               placeholder="Summary / Objective" 
                               className="mt-1 w-full border-2 border-gray-200 rounded-md p-2 min-h-[100px]"
+                              ref={summaryRef}
                               value={formData.personal.summary}
                               onChange={(e) => setFormData(prev => ({
                                 ...prev,
@@ -783,19 +828,16 @@ export default function CreateResumePage() {
                       </div>
                     </div>
                   )}
-                  <div className="relative group">
+                  <div className="relative group flex flex-col gap-3 w-full">
                     <button
                       type="button"
-                      className="primary-btn-6px text-white px-6 rounded-md flex gap-2 py-2"
-                      onClick={() => {
-                        setShowValidation(true);
-                        if (validateForm()) {
-                          setActiveTab('download');
-                        }
-                      }}
+                      className={`px-6 rounded-md flex gap-2 py-2 w-fit m-auto ${isGenerating ? 'bg-gray-300 text-gray-500 cursor-not-allowed' : 'primary-btn-6px text-white'}`}
+                      onClick={handleGenerateWithAI}
+                      disabled={isGenerating}
                     >
-                      Generate Resume <ArrowRight strokeWidth={1.5} />
+                      {isGenerating ? 'Generating...' : 'Generate Resume'} <ArrowRight strokeWidth={1.5} />
                     </button>
+                    {/* Removed secondary Generate with AI button to keep single CTA */}
                     {!isFormValid && (
                       <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
                         <div className="text-center">

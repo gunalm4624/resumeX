@@ -211,15 +211,15 @@ export default function AppSidebar() {
                       >
                         {item.icon ? (
                           <div
-                            className='w-6 h-6 flex items-center justify-center rounded-lg overflow-hidden'
+                            className='w-8 h-8 flex items-center justify-center rounded-sm'
                             style={{
-                              background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.00) 100%)',
+                              background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.00) 100%)'
                             }}
                           >
-                            <Icon className='w-6 h-6' />
+                            <Icon size={16} stroke={1.5} className='w-4 h-4' />
                           </div>
                         ) : (
-                          <Icon className='w-6 h-6' />
+                          <Icon size={16} stroke={1.5} className='w-4 h-4' />
                         )}
                         <span>{item.title}</span>
                         <IconChevronRight className='ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90' />
@@ -259,10 +259,10 @@ export default function AppSidebar() {
                             background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.00) 100%)'
                           }}
                         >
-                          <Icon className='w-5 h-5' />
+                          <Icon size={16} stroke={1.5} className='w-4 h-4' />
                         </div>
                       ) : (
-                        <Icon className='w-6 h-6' />
+                        <Icon size={16} stroke={1.5} className='w-4 h-4' />
                       )}
                       <span>{item.title}</span>
                     </Link>

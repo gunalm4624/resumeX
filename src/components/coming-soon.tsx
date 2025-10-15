@@ -1,4 +1,5 @@
 import React from 'react';
+import { SparklesText } from './ui/sparkles-text';
 
 export default function ComingSoon({
   description = 'This feature is on the way. Thanks for your patience!'
@@ -6,10 +7,9 @@ export default function ComingSoon({
   description?: string;
 }) {
   return (
-    <div className="flex flex-col items-center justify-center gap-3 py-12 text-center border rounded-lg">
-      <div className="text-2xl font-semibold">Coming soon</div>
-      <p className="text-muted-foreground max-w-xl">{description}</p>
-    </div>
+   <div className='flex h-full min-h-[calc(100dvh-52px)] w-full items-center justify-center text-center'>
+     <SparklesText text="Coming soon" />
+   </div>
   );
 }
 

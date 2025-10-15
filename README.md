@@ -101,6 +101,7 @@ git clone https://github.com/Kiranism/next-shadcn-dashboard-starter.git
 - Create a `.env.local` file by copying the example environment file:
   `cp env.example.txt .env.local`
 - Add the required environment variables to the `.env.local` file.
+- Set `GOOGLE_GENERATIVE_AI_API_KEY` in `.env.local` for AI resume generation.
 - `pnpm run dev`
 
 ##### Environment Configuration Setup
